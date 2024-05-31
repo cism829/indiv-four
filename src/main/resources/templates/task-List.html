@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Task List </h1>
+<form action="/tasks/create" method="post">
+    <input type="text" id="title" name="title" placeholder="title"/>
+    <input type="text" id="details" name="details" placeholder="details"/>
+    <select id="status" name="status">
+        <option value="pending">pending</option>
+        <option value="in-progress">in-progress</option>
+        <option value="done">done</option>
+        <option value="cancelled">cancelled</option>
+    </select>
+    <button type="submit">Create New Task</button>
+</form>
+<table class="table table-bordered">
+    <thead class="table-light">
+    <tr>
+        <th>title</th>
+        <th>goal id</th>
+        <th>target date</th>
+        <th>details</th>
+        <th>status</th>
+
+    </tr>
+    </thead>
+    <tbody  class="table-group-divider">
+    <tr data-th-each="goal: ${taskList}">
+        <td data-th-text="${task.title}"></td>
+        <td data-th-text="${task.details}"></td>
+        <td data-th-text="${task.status}"></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
